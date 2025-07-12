@@ -1,57 +1,6 @@
 import { motion } from 'framer-motion'
 
 const About = () => {
-  const castingSteps = [
-    {
-      step: 1,
-      title: '의뢰',
-      description: '행사 내용 및 일정 의뢰 접수',
-      icon: '📋'
-    },
-    {
-      step: 2,
-      title: '행사 내용 분석',
-      description: '행사 기업 및 브랜드 분석 & 행사 장소에 따른 행사 대상 분석',
-      icon: '🔍'
-    },
-    {
-      step: 3,
-      title: '미팅',
-      description: '광고주 및 운영사와 실무진 미팅 & 결적 제안 및 컨펌',
-      icon: '🤝'
-    },
-    {
-      step: 4,
-      title: '1차 LIST UP',
-      description: '기업 및 브랜드의 이미지에 어울리는 모델 1차 선별 후 프로필 제출',
-      icon: '📝'
-    },
-    {
-      step: 5,
-      title: '2차 LIST UP',
-      description: '광고주 및 운영사 요청시 여유분 및 추가 프로필 체출',
-      icon: '📋'
-    },
-    {
-      step: 6,
-      title: '최종 선발',
-      description: '회의를 통한 최종 인원 선발 & 브랜드 및 기업 교육자료 전달',
-      icon: '✅'
-    },
-    {
-      step: 7,
-      title: '일정 진행',
-      description: '아침 기상 부터 퇴근까지 관리 & 현장 담당자와 수시 소통',
-      icon: '📅'
-    },
-    {
-      step: 8,
-      title: '결과 보고',
-      description: '행사 종료 후 운영 결과에 따른 피드백 및 운영 결과 보고',
-      icon: '📊'
-    }
-  ]
-
   const newProcessSteps = [
     {
       step: 1,

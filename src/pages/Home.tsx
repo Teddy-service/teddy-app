@@ -1,5 +1,3 @@
-import { motion } from 'framer-motion'
-import { Link } from 'react-router-dom'
 import HeroSection from '../components/HeroSection'
 import BrandIntro from '../components/BrandIntro'
 import ServicesSection from '../components/ServicesSection'
