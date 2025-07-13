@@ -2,6 +2,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Pagination, Autoplay } from 'swiper/modules'
 import { useState, useEffect } from 'react'
+import { scrollToTop } from '../utils/scrollToTop'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
@@ -12,6 +13,11 @@ const Portfolio = () => {
   const [visibleProjects, setVisibleProjects] = useState(6)
   const [isExpanded, setIsExpanded] = useState(false)
   const [selectedImage, setSelectedImage] = useState<string | null>(null)
+
+  // Scroll to top on page load
+  useEffect(() => {
+    scrollToTop()
+  }, [])
 
   // Prevent body scroll when modal is open
   useEffect(() => {
@@ -373,10 +379,10 @@ const Portfolio = () => {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h1 className="text-4xl md:text-6xl font-bold text-teddy-text mb-6">
+            <h1 className="portfolio-title font-bold text-teddy-text mb-6">
               포트폴리오
             </h1>
-            <p className="text-xl text-teddy-muted max-w-3xl mx-auto leading-relaxed">
+            <p className="portfolio-subtitle text-teddy-muted max-w-3xl mx-auto leading-relaxed">
               TEDDY가 함께한 다양한 프로젝트들을 확인해보세요.
             </p>
           </motion.div>
@@ -391,7 +397,7 @@ const Portfolio = () => {
             {categories.map((category, index) => (
               <button
                 key={index}
-                className="px-6 py-3 rounded-full bg-teddy-secondary hover:bg-primary-600 hover:text-white text-teddy-text font-medium transition-colors duration-200"
+                className="portfolio-category rounded-full bg-teddy-secondary hover:bg-primary-600 hover:text-white text-teddy-text font-medium transition-colors duration-200"
               >
                 {category}
               </button>
@@ -433,10 +439,10 @@ const Portfolio = () => {
                     
                     {/* Title overlay */}
                     <div className="absolute bottom-4 right-4 text-right">
-                      <h3 className="text-white font-bold text-lg leading-tight drop-shadow-lg">
+                      <h3 className="text-white font-bold portfolio-grid-title leading-tight drop-shadow-lg">
                         {project.title}
                       </h3>
-                      <p className="text-white/80 text-sm mt-1">
+                      <p className="text-white/80 portfolio-grid-category mt-1">
                         {project.category}
                       </p>
                     </div>
@@ -445,17 +451,17 @@ const Portfolio = () => {
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300">
                       <div className="absolute bottom-4 left-4 right-4">
                         <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
-                          <h3 className="text-white font-bold text-lg mb-2">
+                          <h3 className="text-white font-bold portfolio-grid-title mb-2">
                             {project.title}
                           </h3>
-                          <p className="text-white/90 text-sm leading-relaxed">
+                          <p className="text-white/90 portfolio-grid-category leading-relaxed">
                             {project.description}
                           </p>
                           <div className="mt-3 flex items-center justify-between">
-                            <span className="bg-white/20 text-white px-3 py-1 rounded-full text-xs font-medium">
+                            <span className="bg-white/20 text-white px-3 py-1 rounded-full portfolio-grid-category font-medium">
                               {project.category}
                             </span>
-                            <span className="text-white/80 text-xs">
+                            <span className="text-white/80 portfolio-grid-category">
                               자세히 보기 →
                             </span>
                           </div>
@@ -508,7 +514,7 @@ const Portfolio = () => {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="mt-20"
           >
-            <h2 className="text-3xl font-bold text-teddy-text text-center mb-12">
+            <h2 className="portfolio-title font-bold text-teddy-text text-center mb-12">
               주요 프로젝트
             </h2>
             <Swiper
@@ -542,16 +548,16 @@ const Portfolio = () => {
                       />
                       <div className="absolute inset-0 bg-black/30"></div>
                       <div className="absolute top-4 left-4">
-                        <span className="bg-primary-600 text-white px-3 py-1 rounded-full text-sm font-medium">
+                        <span className="bg-primary-600 text-white px-3 py-1 rounded-full portfolio-grid-category font-medium">
                           {project.category}
                         </span>
                       </div>
                     </div>
                     <div className="p-6">
-                      <h3 className="text-lg font-bold text-teddy-text mb-2">
+                      <h3 className="portfolio-grid-title font-bold text-teddy-text mb-2">
                         {project.title}
                       </h3>
-                      <p className="text-teddy-muted text-sm leading-relaxed">
+                      <p className="text-teddy-muted portfolio-grid-category leading-relaxed">
                         {project.description}
                       </p>
                     </div>
@@ -601,23 +607,23 @@ const Portfolio = () => {
 
                 {/* Header Content */}
                 <div className="absolute bottom-6 left-6 right-6">
-                  <span className="bg-white/20 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-medium mb-3 inline-block">
+                  <span className="bg-white/20 backdrop-blur-sm text-white px-4 py-2 rounded-full portfolio-grid-category font-medium mb-3 inline-block">
                     {selectedProject.category}
                   </span>
-                  <h2 className="text-4xl font-bold text-white mb-2 drop-shadow-lg">
+                  <h2 className="portfolio-modal-title font-bold text-white mb-2 drop-shadow-lg">
                     {selectedProject.title}
                   </h2>
-                  <p className="text-white/90 text-lg leading-relaxed">
+                  <p className="text-white/90 portfolio-modal-subtitle leading-relaxed">
                     {selectedProject.description}
                   </p>
                 </div>
               </div>
 
               {/* Modal Content */}
-              <div className="p-8">
+              <div className="p-8 portfolio-scrollable">
                 {/* Image Gallery */}
                 <div className="mb-8">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-6">프로젝트 갤러리</h3>
+                  <h3 className="portfolio-gallery-title font-bold text-gray-900 mb-6">프로젝트 갤러리</h3>
                   <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                     {selectedProject.images.map((image: string, index: number) => (
                       <div 
@@ -646,38 +652,38 @@ const Portfolio = () => {
                 {/* Project Details */}
                 <div className="space-y-8">
                   <div>
-                    <h3 className="text-2xl font-bold text-gray-900 mb-4">프로젝트 설명</h3>
-                    <p className="text-gray-600 leading-relaxed text-lg">
+                    <h3 className="portfolio-details-title font-bold text-gray-900 mb-4">프로젝트 설명</h3>
+                    <p className="text-gray-600 leading-relaxed portfolio-details-text">
                       {selectedProject.longDescription}
                     </p>
                   </div>
                   
                   <div>
-                    <h3 className="text-2xl font-bold text-gray-900 mb-4">프로젝트 정보</h3>
+                    <h3 className="portfolio-details-title font-bold text-gray-900 mb-4">프로젝트 정보</h3>
                     <div className="flex flex-wrap gap-3">
-                      <span className="bg-primary-50 text-primary-700 px-4 py-2 rounded-full text-sm font-medium">
+                      <span className="bg-primary-50 text-primary-700 px-4 py-2 rounded-full portfolio-grid-category font-medium">
                         {selectedProject.details.client}
                       </span>
-                      <span className="bg-primary-50 text-primary-700 px-4 py-2 rounded-full text-sm font-medium">
+                      <span className="bg-primary-50 text-primary-700 px-4 py-2 rounded-full portfolio-grid-category font-medium">
                         {selectedProject.details.date}
                       </span>
-                      <span className="bg-primary-50 text-primary-700 px-4 py-2 rounded-full text-sm font-medium">
+                      <span className="bg-primary-50 text-primary-700 px-4 py-2 rounded-full portfolio-grid-category font-medium">
                         {selectedProject.details.location}
                       </span>
-                      <span className="bg-primary-50 text-primary-700 px-4 py-2 rounded-full text-sm font-medium">
+                      <span className="bg-primary-50 text-primary-700 px-4 py-2 rounded-full portfolio-grid-category font-medium">
                         {selectedProject.details.duration}
                       </span>
-                      <span className="bg-primary-50 text-primary-700 px-4 py-2 rounded-full text-sm font-medium">
+                      <span className="bg-primary-50 text-primary-700 px-4 py-2 rounded-full portfolio-grid-category font-medium">
                         {selectedProject.details.team}
                       </span>
                     </div>
                   </div>
 
                   <div>
-                    <h3 className="text-2xl font-bold text-gray-900 mb-4">주요 성과</h3>
+                    <h3 className="portfolio-details-title font-bold text-gray-900 mb-4">주요 성과</h3>
                     <div className="flex flex-wrap gap-3">
                       {selectedProject.details.results.map((result: string, index: number) => (
-                        <span key={index} className="bg-green-50 text-green-700 px-4 py-2 rounded-full text-sm font-medium">
+                        <span key={index} className="bg-green-50 text-green-700 px-4 py-2 rounded-full portfolio-grid-category font-medium">
                           {result}
                         </span>
                       ))}

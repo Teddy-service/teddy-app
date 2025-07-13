@@ -1,6 +1,12 @@
 import { motion } from 'framer-motion'
+import { useEffect } from 'react'
+import { scrollToTop } from '../utils/scrollToTop'
 
 const About = () => {
+  useEffect(() => {
+    scrollToTop()
+  }, [])
+
   const newProcessSteps = [
     {
       step: 1,
@@ -96,7 +102,7 @@ const About = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-center mb-16"
+            className="text-center"
           >
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
               TEDDY <span className="text-gradient">소개</span>
@@ -346,7 +352,7 @@ const About = () => {
 
           <div className="relative">
             {/* Process Flow Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="process-grid">
               {newProcessSteps.map((step, index) => (
                 <motion.div
                   key={index}
@@ -356,20 +362,23 @@ const About = () => {
                   className="relative group"
                 >
                   {/* Step Card */}
-                  <div className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 h-full">
-                    {/* Step Number */}
-                    <div className={`bg-gradient-to-r ${step.color} rounded-full w-12 h-12 flex items-center justify-center text-white text-lg font-bold mb-4 mx-auto shadow-lg`}>
-                      {step.step}
+                  <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 h-full process-card">
+                    {/* Step Header */}
+                    <div className="process-header">
+                      {/* Step Number */}
+                      <div className={`bg-gradient-to-r ${step.color} text-white rounded-full process-number shadow-lg`}>
+                        {step.step}
+                      </div>
+                      
+                      {/* Title */}
+                      <h3 className="font-bold text-gray-900 process-title">{step.title}</h3>
                     </div>
                     
                     {/* Icon */}
-                    <div className="text-3xl mb-4 text-center">{step.icon}</div>
-                    
-                    {/* Title */}
-                    <h3 className="font-bold text-gray-900 mb-3 text-lg text-center">{step.title}</h3>
+                    <div className="process-icon text-center">{step.icon}</div>
                     
                     {/* Description */}
-                    <p className="text-gray-600 text-sm leading-relaxed text-center">{step.description}</p>
+                    <p className="text-gray-600 process-description">{step.description}</p>
                   </div>
 
                   {/* Arrow for Desktop */}

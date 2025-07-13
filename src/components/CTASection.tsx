@@ -40,25 +40,25 @@ const CTASection = () => {
           viewport={{ once: true }}
           className="text-center text-white"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+          <h2 className="cta-title font-bold mb-6">
             지금 바로 <span className="text-yellow-300">시작</span>하세요
           </h2>
-          <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto leading-relaxed opacity-90">
+          <p className="cta-subtitle mb-8 max-w-3xl mx-auto opacity-90">
             TEDDY와 함께라면 당신의 브랜드도 더욱 빛날 수 있습니다.
             <br />
             지금 바로 문의하고 무료 상담을 받아보세요.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <div className="cta-buttons">
             <Link
               to="/contact"
-              className="bg-white text-primary-600 hover:bg-gray-100 font-semibold py-4 px-8 rounded-lg transition-colors duration-200 text-lg"
+              className="bg-white text-primary-600 hover:bg-gray-100 font-semibold rounded-lg transition-colors duration-200 cta-button"
             >
               무료 상담 신청
             </Link>
             <Link
               to="/portfolio"
-              className="border-2 border-white text-white hover:bg-white hover:text-primary-600 font-semibold py-4 px-8 rounded-lg transition-colors duration-200 text-lg"
+              className="border-2 border-white text-white hover:bg-white hover:text-primary-600 font-semibold rounded-lg transition-colors duration-200 cta-button"
             >
               포트폴리오 보기
             </Link>

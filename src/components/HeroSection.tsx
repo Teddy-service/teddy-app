@@ -60,7 +60,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-4xl md:text-6xl lg:text-7xl font-bold text-teddy-text mb-6 leading-tight drop-shadow-lg"
+            className="hero-title font-bold text-teddy-text mb-6 drop-shadow-lg"
           >
             <span className="text-shadow-lg">언제나 고객과 브랜드 옆,</span>
             <br />
@@ -74,7 +74,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-xl md:text-2xl text-teddy-muted mb-8 max-w-3xl mx-auto leading-relaxed"
+            className="hero-subtitle text-teddy-muted mb-8 max-w-3xl mx-auto"
           >
             당신의 브랜드 곁을 늘 지키며 브랜드의 가치를 함께 빛내고
             <br />
@@ -86,17 +86,17 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+            className="hero-buttons"
           >
             <Link
               to="/portfolio"
-              className="btn-primary text-lg px-8 py-4"
+              className="btn-primary hero-button"
             >
               포트폴리오 보기
             </Link>
             <Link
               to="/contact"
-              className="btn-secondary text-lg px-8 py-4"
+              className="btn-secondary hero-button"
             >
               문의하기
             </Link>

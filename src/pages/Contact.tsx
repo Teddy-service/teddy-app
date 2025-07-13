@@ -1,5 +1,6 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
+import { scrollToTop } from '../utils/scrollToTop'
 // import { init, send } from '@emailjs/browser'
 
 const Contact = () => {
@@ -14,6 +15,10 @@ const Contact = () => {
 
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
+
+  useEffect(() => {
+    scrollToTop()
+  }, [])
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({
@@ -82,10 +87,10 @@ const Contact = () => {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h1 className="text-4xl md:text-6xl font-bold text-teddy-text mb-6">
+            <h1 className="contact-title font-bold text-teddy-text mb-6">
               문의하기
             </h1>
-            <p className="text-xl text-teddy-muted max-w-3xl mx-auto leading-relaxed">
+            <p className="contact-subtitle text-teddy-muted max-w-3xl mx-auto leading-relaxed">
               TEDDY와 함께 프로젝트를 시작해보세요.
               언제든지 문의해주시면 빠른 답변 드리겠습니다.
             </p>
@@ -103,14 +108,14 @@ const Contact = () => {
               <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 rounded-3xl"></div>
               
               <div className="relative p-8">
-                <h2 className="text-3xl font-bold text-gray-900 mb-8">
+                <h2 className="contact-section-title font-bold text-gray-900 mb-8">
                   문의 폼
                 </h2>
                 
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                      <label className="block text-sm font-medium text-gray-900 mb-2">
+                      <label className="block contact-form-label font-medium text-gray-900 mb-2">
                         이름 *
                       </label>
                       <input
@@ -119,12 +124,12 @@ const Contact = () => {
                         value={formData.name}
                         onChange={handleChange}
                         required
-                        className="w-full px-4 py-3 bg-white/40 backdrop-blur-sm border-2 border-gray-300/60 rounded-lg focus:ring-2 focus:ring-gray-400/80 focus:border-gray-400/80 transition-colors placeholder-gray-600"
+                        className="w-full contact-form-input bg-white/40 backdrop-blur-sm border-2 border-gray-300/60 rounded-lg focus:ring-2 focus:ring-gray-400/80 focus:border-gray-400/80 transition-colors placeholder-gray-600"
                         placeholder="홍길동"
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-900 mb-2">
+                      <label className="block contact-form-label font-medium text-gray-900 mb-2">
                         이메일 *
                       </label>
                       <input
@@ -133,7 +138,7 @@ const Contact = () => {
                         value={formData.email}
                         onChange={handleChange}
                         required
-                        className="w-full px-4 py-3 bg-white/40 backdrop-blur-sm border-2 border-gray-300/60 rounded-lg focus:ring-2 focus:ring-gray-400/80 focus:border-gray-400/80 transition-colors placeholder-gray-600"
+                        className="w-full contact-form-input bg-white/40 backdrop-blur-sm border-2 border-gray-300/60 rounded-lg focus:ring-2 focus:ring-gray-400/80 focus:border-gray-400/80 transition-colors placeholder-gray-600"
                         placeholder="example@email.com"
                       />
                     </div>
@@ -141,7 +146,7 @@ const Contact = () => {
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                      <label className="block text-sm font-medium text-gray-900 mb-2">
+                      <label className="block contact-form-label font-medium text-gray-900 mb-2">
                         연락처
                       </label>
                       <input
@@ -149,12 +154,12 @@ const Contact = () => {
                         name="phone"
                         value={formData.phone}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 bg-white/40 backdrop-blur-sm border-2 border-gray-300/60 rounded-lg focus:ring-2 focus:ring-gray-400/80 focus:border-gray-400/80 transition-colors placeholder-gray-600"
+                        className="w-full contact-form-input bg-white/40 backdrop-blur-sm border-2 border-gray-300/60 rounded-lg focus:ring-2 focus:ring-gray-400/80 focus:border-gray-400/80 transition-colors placeholder-gray-600"
                         placeholder="010-1234-5678"
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-900 mb-2">
+                      <label className="block contact-form-label font-medium text-gray-900 mb-2">
                         회사명
                       </label>
                       <input
@@ -162,14 +167,14 @@ const Contact = () => {
                         name="company"
                         value={formData.company}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 bg-white/40 backdrop-blur-sm border-2 border-gray-300/60 rounded-lg focus:ring-2 focus:ring-gray-400/80 focus:border-gray-400/80 transition-colors placeholder-gray-600"
+                        className="w-full contact-form-input bg-white/40 backdrop-blur-sm border-2 border-gray-300/60 rounded-lg focus:ring-2 focus:ring-gray-400/80 focus:border-gray-400/80 transition-colors placeholder-gray-600"
                         placeholder="회사명"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-900 mb-2">
+                    <label className="block contact-form-label font-medium text-gray-900 mb-2">
                       서비스 유형 *
                     </label>
                     <select
@@ -177,7 +182,7 @@ const Contact = () => {
                       value={formData.service}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 bg-white/40 backdrop-blur-sm border-2 border-gray-300/60 rounded-lg focus:ring-2 focus:ring-gray-400/80 focus:border-gray-400/80 transition-colors text-gray-900"
+                      className="w-full contact-form-select bg-white/40 backdrop-blur-sm border-2 border-gray-300/60 rounded-lg focus:ring-2 focus:ring-gray-400/80 focus:border-gray-400/80 transition-colors text-gray-900"
                     >
                       <option value="" className="text-gray-600">서비스를 선택해주세요</option>
                       <option value="model" className="text-gray-900">모델 에이전시</option>
@@ -188,7 +193,7 @@ const Contact = () => {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-900 mb-2">
+                    <label className="block contact-form-label font-medium text-gray-900 mb-2">
                       문의 내용 *
                     </label>
                     <textarea
@@ -197,7 +202,7 @@ const Contact = () => {
                       onChange={handleChange}
                       required
                       rows={6}
-                      className="w-full px-4 py-3 bg-white/40 backdrop-blur-sm border-2 border-gray-300/60 rounded-lg focus:ring-2 focus:ring-gray-400/80 focus:border-gray-400/80 transition-colors resize-none placeholder-gray-600"
+                      className="w-full contact-form-textarea bg-white/40 backdrop-blur-sm border-2 border-gray-300/60 rounded-lg focus:ring-2 focus:ring-gray-400/80 focus:border-gray-400/80 transition-colors resize-none placeholder-gray-600"
                       placeholder="프로젝트에 대한 자세한 내용을 알려주세요..."
                     />
                   </div>
@@ -205,7 +210,7 @@ const Contact = () => {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full bg-white/50 backdrop-blur-sm border-2 border-gray-400/70 text-gray-900 text-lg py-4 rounded-lg hover:bg-white/60 hover:border-gray-500/80 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed font-semibold shadow-lg"
+                    className="w-full contact-form-button bg-white/50 backdrop-blur-sm border-2 border-gray-400/70 text-gray-900 rounded-lg hover:bg-white/60 hover:border-gray-500/80 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed font-semibold shadow-lg"
                   >
                     {isSubmitting ? '전송 중...' : '문의하기'}
                   </button>
@@ -244,7 +249,7 @@ const Contact = () => {
               <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 rounded-3xl"></div>
               
               <div className="relative p-8">
-                <h2 className="text-3xl font-bold text-gray-900 mb-8">
+                <h2 className="contact-section-title font-bold text-gray-900 mb-8">
                   연락처 정보
                 </h2>
                 
@@ -280,13 +285,13 @@ const Contact = () => {
                             {info.icon}
                           </motion.div>
                           <div className="flex-1">
-                            <h3 className="text-lg font-semibold text-gray-900 mb-1 group-hover:text-gray-700 transition-colors duration-300">
+                            <h3 className="contact-info-title font-semibold text-gray-900 mb-1 group-hover:text-gray-700 transition-colors duration-300">
                               {info.title}
                             </h3>
-                            <p className="text-gray-800 font-medium">
+                            <p className="contact-info-content text-gray-800 font-medium">
                               {info.content}
                             </p>
-                            <p className="text-gray-600 text-sm">
+                            <p className="contact-info-subcontent text-gray-600">
                               {info.subContent}
                             </p>
                           </div>
@@ -303,7 +308,7 @@ const Contact = () => {
                   transition={{ duration: 0.6, delay: 0.9 }}
                   className="mt-8"
                 >
-                  <h3 className="text-lg font-semibold text-gray-900 mb-4">
+                  <h3 className="contact-map-title font-semibold text-gray-900 mb-4">
                     위치
                   </h3>
                   <div className="relative">

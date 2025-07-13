@@ -1,9 +1,15 @@
 import { motion } from 'framer-motion'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Autoplay } from 'swiper/modules'
+import { useEffect } from 'react'
+import { scrollToTop } from '../utils/scrollToTop'
 import 'swiper/css'
 
 const Client = () => {
+  useEffect(() => {
+    scrollToTop()
+  }, [])
+
   const clients = [
     { name: "Fashion Brand A", logo: "https://via.placeholder.com/200x100/4F46E5/FFFFFF?text=Brand+A", category: "패션" },
     { name: "Beauty Brand B", logo: "https://via.placeholder.com/200x100/EC4899/FFFFFF?text=Brand+B", category: "뷰티" },
@@ -49,10 +55,10 @@ const Client = () => {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h1 className="text-4xl md:text-6xl font-bold text-teddy-text mb-6">
+            <h1 className="client-title font-bold text-teddy-text mb-6">
               클라이언트
             </h1>
-            <p className="text-xl text-teddy-muted max-w-3xl mx-auto leading-relaxed">
+            <p className="client-subtitle text-teddy-muted max-w-3xl mx-auto leading-relaxed">
               TEDDY와 함께 성장한 다양한 브랜드들을 소개합니다.
             </p>
           </motion.div>
@@ -64,7 +70,7 @@ const Client = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="mb-20"
           >
-            <h2 className="text-3xl font-bold text-teddy-text text-center mb-12">
+            <h2 className="client-section-title font-bold text-teddy-text text-center mb-12">
               협력 브랜드
             </h2>
             <Swiper
@@ -107,7 +113,7 @@ const Client = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="mb-20"
           >
-            <h2 className="text-3xl font-bold text-teddy-text text-center mb-12">
+            <h2 className="client-section-title font-bold text-teddy-text text-center mb-12">
               클라이언트 소개
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -126,10 +132,10 @@ const Client = () => {
                       className="max-w-full max-h-full object-contain"
                     />
                   </div>
-                  <h3 className="text-lg font-bold text-teddy-text mb-2">
+                  <h3 className="client-card-title font-bold text-teddy-text mb-2">
                     {client.name}
                   </h3>
-                  <span className="inline-block bg-teddy-secondary text-teddy-muted px-3 py-1 rounded-full text-sm">
+                  <span className="inline-block bg-teddy-secondary text-teddy-muted px-3 py-1 rounded-full client-card-category">
                     {client.category}
                   </span>
                 </motion.div>
@@ -143,7 +149,7 @@ const Client = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
-            <h2 className="text-3xl font-bold text-teddy-text text-center mb-12">
+            <h2 className="client-section-title font-bold text-teddy-text text-center mb-12">
               클라이언트 후기
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -162,14 +168,14 @@ const Client = () => {
                       </svg>
                     ))}
                   </div>
-                  <p className="text-teddy-muted leading-relaxed mb-6">
+                  <p className="client-testimonial-content text-teddy-muted leading-relaxed mb-6">
                     "{testimonial.content}"
                   </p>
                   <div>
-                    <div className="font-semibold text-teddy-text">
+                    <div className="client-testimonial-name font-semibold text-teddy-text">
                       {testimonial.name}
                     </div>
-                    <div className="text-sm text-teddy-muted">
+                    <div className="client-testimonial-position text-teddy-muted">
                       {testimonial.position}, {testimonial.company}
                     </div>
                   </div>
