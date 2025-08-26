@@ -1,11 +1,6 @@
 import { motion, AnimatePresence } from 'framer-motion'
-import { Swiper, SwiperSlide } from 'swiper/react'
-import { Navigation, Pagination, Autoplay } from 'swiper/modules'
 import { useState, useEffect } from 'react'
 import { scrollToTop } from '../utils/scrollToTop'
-import 'swiper/css'
-import 'swiper/css/navigation'
-import 'swiper/css/pagination'
 
 const Portfolio = () => {
   const [selectedProject, setSelectedProject] = useState<any>(null)
