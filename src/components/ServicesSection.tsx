@@ -82,10 +82,10 @@ const ServicesSection = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent rounded-2xl"></div>
               
               {/* Glow Effect */}
-              <div className="absolute inset-0 bg-gradient-to-br from-primary-100/30 via-transparent to-primary-200/30 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-orange-100/30 via-transparent to-orange-200/30 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               
               {/* Hover Border Effect */}
-              <div className="absolute inset-0 rounded-2xl border-2 border-transparent group-hover:border-primary-300/70 transition-all duration-300"></div>
+              <div className="absolute inset-0 rounded-2xl border-2 border-transparent group-hover:border-orange-300/70 transition-all duration-300"></div>
               
               {/* Content */}
               <div className="relative p-6 text-center w-full h-full flex flex-col justify-center">
@@ -99,7 +99,7 @@ const ServicesSection = () => {
                 >
                   {service.icon}
                 </motion.div>
-                <h3 className="text-xl font-bold text-white mb-3 group-hover:text-primary-200 transition-colors duration-300 drop-shadow-lg font-semibold underline decoration-2 underline-offset-8">
+                <h3 className="text-xl font-bold text-white mb-3 group-hover:text-orange-200 transition-colors duration-300 drop-shadow-lg font-semibold underline decoration-2 underline-offset-8">
                   {service.title}
                 </h3>
                 <p className="text-white text-sm mb-4 leading-relaxed drop-shadow-md font-medium">

@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import HeroSection from '../components/HeroSection'
 import BrandIntro from '../components/BrandIntro'
+import FeaturedProjects from '../components/FeaturedProjects'
 import ServicesSection from '../components/ServicesSection'
 import CTASection from '../components/CTASection'
 import { scrollToTop } from '../utils/scrollToTop'
@@ -17,6 +18,9 @@ const Home = () => {
       
       {/* Brand Introduction */}
       <BrandIntro />
+      
+      {/* Featured Projects */}
+      <FeaturedProjects />
       
       {/* Services Section */}
       <ServicesSection />

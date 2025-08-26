@@ -124,7 +124,7 @@ const Header = () => {
                     }}
                     className={`block px-4 py-2 text-sm font-medium rounded-lg transition-colors ${
                       isActive(item.path)
-                        ? 'bg-primary-50 text-primary-600'
+                        ? 'bg-primary-50 text-orange-600'
                         : 'text-teddy-muted hover:bg-teddy-secondary hover:text-teddy-text'
                     }`}
                   >

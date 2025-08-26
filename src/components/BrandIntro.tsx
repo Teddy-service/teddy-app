@@ -94,10 +94,10 @@ const BrandIntro = () => {
               <div className="absolute inset-0 bg-gradient-to-br from-white/80 via-white/60 to-white/40 backdrop-blur-md rounded-2xl border border-white/30 shadow-xl group-hover:shadow-2xl transition-all duration-300"></div>
               
               {/* Glow Effect */}
-              <div className="absolute inset-0 bg-gradient-to-br from-primary-100/20 via-transparent to-primary-200/20 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-orange-100/20 via-transparent to-orange-200/20 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               
               {/* Hover Border Effect */}
-              <div className="absolute inset-0 rounded-2xl border-2 border-transparent group-hover:border-primary-300/50 transition-all duration-300"></div>
+              <div className="absolute inset-0 rounded-2xl border-2 border-transparent group-hover:border-orange-300/50 transition-all duration-300"></div>
               
               {/* Content */}
               <div className="relative p-8 text-center w-full h-full flex flex-col justify-center">
@@ -111,7 +111,7 @@ const BrandIntro = () => {
                 >
                   {feature.icon}
                 </motion.div>
-                <h3 className="text-2xl font-bold text-teddy-text mb-4 group-hover:text-primary-600 transition-colors duration-300">
+                <h3 className="text-2xl font-bold text-teddy-text mb-4 group-hover:text-orange-600 transition-colors duration-300">
                   {feature.title}
                 </h3>
                 <p className="text-teddy-muted leading-relaxed text-sm md:text-base">

@@ -105,7 +105,7 @@ const Contact = () => {
               className="relative"
             >
               {/* Background for Glass Effect */}
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 rounded-3xl"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-orange-50 to-pink-50 rounded-3xl"></div>
               
               <div className="relative p-8">
                 <h2 className="contact-section-title font-bold text-gray-900 mb-8">
@@ -246,7 +246,7 @@ const Contact = () => {
               className="relative"
             >
               {/* Background for Glass Effect */}
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 rounded-3xl"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-orange-50 to-pink-50 rounded-3xl"></div>
               
               <div className="relative p-8">
                 <h2 className="contact-section-title font-bold text-gray-900 mb-8">
