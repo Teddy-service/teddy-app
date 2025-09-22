@@ -90,23 +90,37 @@ const FeaturedProjects = () => {
     },
     {
       id: 2,
-      title: "뷰티 브랜드 팝업스토어",
+      title: "[GIVENCHY] 신세계백화점 강남점 팝업 스토어",
       category: "행사 기획",
-      description: "뷰티 브랜드의 임시 매장을 기획하고 운영했습니다.",
+      description: (
+        <>
+          <p>✔️ 포토 인화 이벤트</p>
+          <p>✔️ 100% 당첨 스크래치 카드 이벤트</p>
+          <br />
+          <p>신세계백화점 강남점에서 진행된 지방시 젠틀맨 소사이어티 팝업을 성공적으로 마무리했습니다.</p>
+        </>
+      ),
       image: "/assets/IMG/Project/Givenchy/givenchy_2.PNG",
     },
     {
       id: 3,
-      title: "프로시안 화장품 행사",
+      title: "[FRESHIAN] Kurly Beauty Festa",
       category: "행사 기획",
-      description: "프로시안 화장품 브랜드의 신제품 런칭 행사를 성공적으로 진행했습니다.",
+      description: "프레시안 컬리뷰티페스타 현장을 더욱 빛낼 수 있도록 행사 경험이 많은 프로모터들로 구성하여 페스타 분위기에 걸맞은 생동감 있는 운영을 선보였습니다.",
       image: "/assets/IMG/Project/Freshian/freshian_2.jpg",
     },
     {
       id: 4,
-      title: "싱글즈 지방시 행사",
+      title: "[GIVENCHY] 싱글즈 스튜디오 팝업 스토어 ",
       category: "행사 기획",
-      description: "싱글즈 매거진과 지방시 뷰티의 콜라보레이션 행사를 성공적으로 진행했습니다.",
+      description: (
+        <>
+          <p>카카오톡 플친 이벤트 🎁</p>
+          <p>100% 당첨 스크래치 이벤트 🖍️</p>
+          <br />
+          <p>고객들과 소통하며 재밌게 운영한 덕분에 더 많은 분들이 지방시 제품을 직접 체험하고 즐길 수 있었어요!</p>
+        </>
+      ),
       image: "/assets/IMG/Project/Givenchy/singles/singles_1.jpg",
     },
     {
@@ -118,9 +132,15 @@ const FeaturedProjects = () => {
     },
     {
       id: 6,
-      title: "코스메틱 브랜드 홍보",
+      title: "[GUCCI BEAUTY] FLORA 시향회",
       category: "행사 기획",
-      description: "럭셔리 코스메틱 브랜드의 프리미엄 라인 론칭 행사를 성공적으로 진행했습니다.",
+      description: (
+        <>
+          <p>“향기로 기억되는 순간” 🌸</p>
+          <br />
+          <p>이번 구찌 뷰티 FLORA 시향회에서는 플로럴 무드 가득한 공간에서 고객분들이 직접 향을 경험하고 브랜드 스토리에 깊이 빠질 수 있도록 섬세한 운영을 진행했습니다.</p>
+        </>
+      ),
       image: "/assets/IMG/Project/Gucci/test/test_3.jpg",
     }
   ]
@@ -202,7 +222,8 @@ const FeaturedProjects = () => {
                         overflow: 'hidden',
                         textOverflow: 'ellipsis',
                         whiteSpace: 'nowrap',
-                        maxWidth: '100%'
+                        maxWidth: '100%',
+                        maxHeight: '20px'
                       }}
                     >
                       {project.description}
@@ -285,9 +306,9 @@ const FeaturedProjects = () => {
                   <h2 className="portfolio-modal-title font-bold text-white mb-2 drop-shadow-lg">
                     {selectedProject.title}
                   </h2>
-                  <p className="text-white/90 portfolio-modal-subtitle leading-relaxed">
+                  {/* <p className="text-white/90 portfolio-modal-subtitle leading-relaxed">
                     {selectedProject.description}
-                  </p>
+                  </p> */}
                 </div>
               </div>
 

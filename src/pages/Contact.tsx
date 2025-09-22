@@ -125,7 +125,7 @@ const Contact = () => {
                         onChange={handleChange}
                         required
                         className="w-full contact-form-input bg-white/40 backdrop-blur-sm border-2 border-gray-300/60 rounded-lg focus:ring-2 focus:ring-gray-400/80 focus:border-gray-400/80 transition-colors placeholder-gray-600"
-                        placeholder="홍길동"
+                        placeholder="성함을 입력해주세요"
                       />
                     </div>
                     <div>
@@ -139,7 +139,7 @@ const Contact = () => {
                         onChange={handleChange}
                         required
                         className="w-full contact-form-input bg-white/40 backdrop-blur-sm border-2 border-gray-300/60 rounded-lg focus:ring-2 focus:ring-gray-400/80 focus:border-gray-400/80 transition-colors placeholder-gray-600"
-                        placeholder="example@email.com"
+                        placeholder="이메일을 입력해주세요"
                       />
                     </div>
                   </div>
@@ -155,7 +155,7 @@ const Contact = () => {
                         value={formData.phone}
                         onChange={handleChange}
                         className="w-full contact-form-input bg-white/40 backdrop-blur-sm border-2 border-gray-300/60 rounded-lg focus:ring-2 focus:ring-gray-400/80 focus:border-gray-400/80 transition-colors placeholder-gray-600"
-                        placeholder="010-1234-5678"
+                        placeholder="연락처를 입력해주세요"
                       />
                     </div>
                     <div>
@@ -168,7 +168,7 @@ const Contact = () => {
                         value={formData.company}
                         onChange={handleChange}
                         className="w-full contact-form-input bg-white/40 backdrop-blur-sm border-2 border-gray-300/60 rounded-lg focus:ring-2 focus:ring-gray-400/80 focus:border-gray-400/80 transition-colors placeholder-gray-600"
-                        placeholder="회사명"
+                        placeholder="회사명을 입력해주세요"
                       />
                     </div>
                   </div>
@@ -203,7 +203,7 @@ const Contact = () => {
                       required
                       rows={6}
                       className="w-full contact-form-textarea bg-white/40 backdrop-blur-sm border-2 border-gray-300/60 rounded-lg focus:ring-2 focus:ring-gray-400/80 focus:border-gray-400/80 transition-colors resize-none placeholder-gray-600"
-                      placeholder="프로젝트에 대한 자세한 내용을 알려주세요..."
+                      placeholder="문의 내용을 입력해주세요"
                     />
                   </div>
 
