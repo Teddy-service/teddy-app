@@ -1,8 +1,21 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
 import { scrollToTop } from '../utils/scrollToTop'
 import { sendContactEmail } from '../services/emailService'
 // import { init, send } from '@emailjs/browser'
+
+// Google Maps 타입 정의
+declare global {
+  interface Window {
+    google: {
+      maps: {
+        Map: any
+        Marker: any
+        Size: any
+      }
+    }
+  }
+}
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -16,9 +29,86 @@ const Contact = () => {
 
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
+  const [isMapLoaded, setIsMapLoaded] = useState(false)
+  const mapRef = useRef<HTMLDivElement>(null)
+  const mapInstanceRef = useRef<any>(null)
 
   useEffect(() => {
     scrollToTop()
+  }, [])
+
+  // Google Maps 초기화
+  useEffect(() => {
+    const initMap = () => {
+      const googleMapKey = import.meta.env.VITE_GOOGLE_MAP_KEY
+      
+      if (!googleMapKey) {
+        console.error('Google Maps API key not found')
+        return
+      }
+
+      // Google Maps API 스크립트 로드
+      const script = document.createElement('script')
+      script.src = `https://maps.googleapis.com/maps/api/js?key=${googleMapKey}&libraries=places`
+      script.async = true
+      script.defer = true
+      
+      script.onload = () => {
+        if (mapRef.current && window.google) {
+          // TEDDY Agency 위치 (강남구로 가정)
+          const teddyLocation = { lat: 37.5665, lng: 126.9780 }
+          
+          mapInstanceRef.current = new window.google.maps.Map(mapRef.current, {
+            zoom: 15,
+            center: teddyLocation,
+            mapTypeControl: false,
+            streetViewControl: false,
+            fullscreenControl: false,
+            styles: [
+              {
+                featureType: 'poi',
+                elementType: 'labels',
+                stylers: [{ visibility: 'off' }]
+              }
+            ]
+          })
+
+          // 마커 추가
+          new window.google.maps.Marker({
+            position: teddyLocation,
+            map: mapInstanceRef.current,
+            title: 'TEDDY Agency',
+            icon: {
+              url: 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(`
+                <svg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="20" cy="20" r="18" fill="#f97316" stroke="#fff" stroke-width="2"/>
+                  <text x="20" y="26" text-anchor="middle" fill="white" font-size="16" font-weight="bold">T</text>
+                </svg>
+              `),
+              scaledSize: new window.google.maps.Size(40, 40)
+            }
+          })
+
+          setIsMapLoaded(true)
+        }
+      }
+
+      script.onerror = () => {
+        console.error('Failed to load Google Maps API')
+      }
+
+      document.head.appendChild(script)
+
+      return () => {
+        if (document.head.contains(script)) {
+          document.head.removeChild(script)
+        }
+      }
+    }
+
+    // 컴포넌트 마운트 후 지도 초기화
+    const timer = setTimeout(initMap, 100)
+    return () => clearTimeout(timer)
   }, [])
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -312,13 +402,21 @@ const Contact = () => {
                     위치
                   </h3>
                   <div className="relative">
-                    {/* Glass Effect for Map */}
-                    <div className="absolute inset-0 bg-white/20 backdrop-blur-md rounded-2xl border border-white/40 shadow-xl"></div>
-                    <div className="relative w-full h-64 rounded-2xl flex items-center justify-center">
-                      <div className="text-center">
-                        <div className="text-4xl mb-2">🗺️</div>
-                        <p className="text-gray-700">지도가 여기에 표시됩니다</p>
-                      </div>
+                    {/* Google Maps */}
+                    <div className="relative w-full h-64 rounded-2xl overflow-hidden border border-gray-200 shadow-xl">
+                      {!isMapLoaded ? (
+                        <div className="absolute inset-0 bg-white/20 backdrop-blur-md rounded-2xl border border-white/40 shadow-xl flex items-center justify-center">
+                          <div className="text-center">
+                            <div className="text-4xl mb-2">🗺️</div>
+                            <p className="text-gray-700">지도를 로딩 중입니다...</p>
+                          </div>
+                        </div>
+                      ) : null}
+                      <div 
+                        ref={mapRef} 
+                        className="w-full h-full rounded-2xl"
+                        style={{ minHeight: '256px' }}
+                      />
                     </div>
                   </div>
                 </motion.div>
