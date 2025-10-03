@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { scrollToTop } from '../utils/scrollToTop'
+import { sendContactEmail } from '../services/emailService'
 // import { init, send } from '@emailjs/browser'
 
 const Contact = () => {
@@ -33,12 +34,10 @@ const Contact = () => {
     setSubmitStatus('idle')
 
     try {
-      // EmailJS 설정 (실제 사용시 환경변수로 관리)
-      // init("YOUR_USER_ID")
-      // await send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", formData)
+      // emailService를 통해 이메일 전송
+      const success = await sendContactEmail(formData)
       
-      // 임시로 성공 처리
-      setTimeout(() => {
+      if (success) {
         setSubmitStatus('success')
         setIsSubmitting(false)
         setFormData({
@@ -49,8 +48,9 @@ const Contact = () => {
           service: '',
           message: ''
         })
-      }, 1000)
+      }
     } catch (error) {
+      console.error('문의 폼 제출 오류:', error)
       setSubmitStatus('error')
       setIsSubmitting(false)
     }

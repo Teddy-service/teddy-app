@@ -33,7 +33,7 @@ const Intro = () => {
       {/* Floating Elements */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
-          className="absolute top-20 left-10 w-72 h-72 bg-orange-100 rounded-full mix-blend-multiply filter blur-xl opacity-70"
+          className="absolute top-20 left-10 w-72 h-72 bg-[rgba(165,124,69,0.4)] rounded-full mix-blend-multiply filter blur-xl opacity-70"
           animate={{
             x: [0, 100, 0],
             scale: [1, 1.2, 1],
@@ -45,7 +45,7 @@ const Intro = () => {
           }}
         />
         <motion.div
-          className="absolute top-40 right-10 w-96 h-96 bg-orange-200 rounded-full mix-blend-multiply filter blur-xl opacity-70"
+          className="absolute top-40 right-10 w-96 h-96 bg-[rgba(165,124,69,0.7)] rounded-full mix-blend-multiply filter blur-xl opacity-70"
           animate={{
             x: [0, -150, 0],
             scale: [1.2, 1, 1.2],
@@ -57,7 +57,7 @@ const Intro = () => {
           }}
         />
         <motion.div
-          className="absolute bottom-20 left-1/4 w-80 h-80 bg-orange-300 rounded-full mix-blend-multiply filter blur-xl opacity-70"
+          className="absolute bottom-20 left-1/4 w-80 h-80 bg-[rgba(165,124,69,1)] rounded-full mix-blend-multiply filter blur-xl opacity-70"
           animate={{
             x: [0, 120, 0],
             scale: [1, 1.3, 1],

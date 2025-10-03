@@ -39,11 +39,11 @@
   }
   
   .text-gradient {
-    @apply bg-gradient-to-r from-orange-600 to-orange-800 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-[rgba(165,124,69,1)] to-[rgba(165,124,69,0.8)] bg-clip-text text-transparent;
   }
 
   .btn-primary {
-    @apply bg-orange-600 hover:bg-orange-700 text-white font-medium py-3 px-6 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl;
+    @apply bg-[rgba(165,124,69,1)] hover:bg-[rgba(165,124,69,0.8)] text-white font-medium py-3 px-6 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl;
     }
   
   .logo-responsive {
@@ -294,7 +294,7 @@
   }
   
   .portfolio-scrollable {
-    max-height: 60vh;
+    max-height: 50vh;
     overflow-y: auto;
     scrollbar-width: thin;
     scrollbar-color: rgba(156, 163, 175, 0.5) transparent;

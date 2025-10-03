@@ -199,7 +199,7 @@ const FeaturedProjects = () => {
                     />
                     <div className="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-all duration-300"></div>
                     <div className="absolute top-4 left-4">
-                      <span className="bg-orange-600 text-white px-3 py-1 rounded-full portfolio-grid-category font-medium">
+                      <span className="bg-[rgba(165,124,69,1)] text-white px-3 py-1 rounded-full portfolio-grid-category font-medium">
                         {project.category}
                       </span>
                     </div>
@@ -252,7 +252,7 @@ const FeaturedProjects = () => {
         >
           <Link
             to="/portfolio"
-            className="inline-flex items-center justify-center px-8 py-4 bg-orange-600 hover:bg-orange-700 text-white font-bold text-lg rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl group"
+            className="inline-flex items-center justify-center px-8 py-4 bg-[rgba(165,124,69,1)] hover:bg-[rgba(165,124,69,0.8)] text-white font-bold text-lg rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl group"
           >
             전체 포트폴리오 보기
             <svg className="w-5 h-5 ml-2 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -325,7 +325,7 @@ const FeaturedProjects = () => {
                   <div className="text-center">
                     <Link
                       to="/portfolio"
-                      className="inline-flex items-center justify-center px-6 py-3 bg-orange-600 hover:bg-orange-700 text-white font-medium rounded-lg transition-all duration-300"
+                      className="inline-flex items-center justify-center px-6 py-3 bg-[rgba(165,124,69,1)] hover:bg-[rgba(165,124,69,0.8)] text-white font-medium rounded-lg transition-all duration-300"
                     >
                       전체 포트폴리오에서 더 자세히 보기
                       <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">

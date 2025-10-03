@@ -555,8 +555,8 @@ const Portfolio = () => {
                 onClick={() => handleCategorySelect(category)}
                 className={`portfolio-category rounded-full font-medium transition-all duration-200 ${
                   selectedCategory === category
-                    ? 'bg-orange-600 text-white shadow-lg scale-105'
-                    : 'bg-teddy-secondary hover:bg-orange-500 hover:text-white text-teddy-text'
+                    ? 'bg-[rgba(165,124,69,1)] text-white shadow-lg scale-105'
+                    : 'bg-teddy-secondary hover:bg-[rgba(165,124,69,0.8)] hover:text-white text-teddy-text'
                 }`}
               >
                 {category}

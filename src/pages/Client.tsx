@@ -11,14 +11,15 @@ const Client = () => {
   }, [])
 
   const clients = [
-    { name: "Fashion Brand A", logo: "https://via.placeholder.com/200x100/4F46E5/FFFFFF?text=Brand+A", category: "패션" },
-    { name: "Beauty Brand B", logo: "https://via.placeholder.com/200x100/EC4899/FFFFFF?text=Brand+B", category: "뷰티" },
-    { name: "Lifestyle Brand C", logo: "https://via.placeholder.com/200x100/10B981/FFFFFF?text=Brand+C", category: "라이프스타일" },
-    { name: "Tech Brand D", logo: "https://via.placeholder.com/200x100/F59E0B/FFFFFF?text=Brand+D", category: "테크" },
-    { name: "Food Brand E", logo: "https://via.placeholder.com/200x100/EF4444/FFFFFF?text=Brand+E", category: "푸드" },
-    { name: "Sports Brand F", logo: "https://via.placeholder.com/200x100/8B5CF6/FFFFFF?text=Brand+F", category: "스포츠" },
-    { name: "Luxury Brand G", logo: "https://via.placeholder.com/200x100/1F2937/FFFFFF?text=Brand+G", category: "럭셔리" },
-    { name: "Startup Brand H", logo: "https://via.placeholder.com/200x100/06B6D4/FFFFFF?text=Brand+H", category: "스타트업" }
+    { name: "BURBERRY", logo: "/assets/IMG/Clients/Burberry.png", category: "패션", size: "w-30 h-30" },
+    { name: "GUCCI", logo: "/assets/IMG/Clients/gucci.png", category: "푸드", size: "w-30 h-30" },
+    { name: "GICENCHY", logo: "/assets/IMG/Clients/gicenchy.jpg", category: "패션", size: "w-30 h-20" },
+    { name: "JEEP", logo: "/assets/IMG/Clients/jeep.png", category: "스포츠", size: "w-20 h-20" },
+    { name: "SUM", logo: "/assets/IMG/Clients/sum.jpeg", category: "스타트업", size: "w-30 h-30" },
+    { name: "CNPRX", logo: "/assets/IMG/Clients/cnprx.png", category: "라이프스타일", size: "w-30 h-30" },
+    { name: "CELLCURE", logo: "/assets/IMG/Clients/cellcure.png", category: "뷰티", size: "w-30 h-30" },
+    { name: "FRESHIAN", logo: "/assets/IMG/Clients/freshian.png", category: "테크", size: "w-25 h-20" },
+    { name: "THE FACESHOP", logo: "/assets/IMG/Clients/theFaceShop.png", category: "럭셔리", size: "w-30 h-30" },
   ]
 
   const testimonials = [
@@ -55,12 +56,53 @@ const Client = () => {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h1 className="client-title font-bold text-teddy-text mb-6">
+            {/* <h1 className="client-title font-bold text-teddy-text mb-6">
               클라이언트
-            </h1>
+            </h1> */}
             <p className="client-subtitle text-teddy-muted max-w-3xl mx-auto leading-relaxed">
               TEDDY와 함께 성장한 다양한 브랜드들을 소개합니다.
             </p>
+          </motion.div>
+
+          {/* Testimonials */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+          >
+            <h2 className="client-section-title font-bold text-teddy-text text-center mb-12">
+              클라이언트 후기
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
+              {testimonials.map((testimonial, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.2 }}
+                  className="card p-8"
+                >
+                  <div className="flex items-center mb-4">
+                    {[...Array(testimonial.rating)].map((_, i) => (
+                      <svg key={i} className="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                    ))}
+                  </div>
+                  <p className="client-testimonial-content text-teddy-muted leading-relaxed mb-6">
+                    "{testimonial.content}"
+                  </p>
+                  <div>
+                    <div className="client-testimonial-name font-semibold text-teddy-text">
+                      {testimonial.name}
+                    </div>
+                    <div className="client-testimonial-position text-teddy-muted">
+                      {testimonial.position}, {testimonial.company}
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
           </motion.div>
 
           {/* Client Logos */}
@@ -94,11 +136,11 @@ const Client = () => {
             >
               {clients.map((client, index) => (
                 <SwiperSlide key={index}>
-                  <div className="flex items-center justify-center h-24 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+                  <div className="flex items-center justify-center h-24 bg-white rounded-lg hover:shadow-lg transition-shadow duration-300">
                     <img
                       src={client.logo}
                       alt={client.name}
-                      className="max-w-full max-h-full object-contain"
+                      className={`${client.size} object-contain`}
                     />
                   </div>
                 </SwiperSlide>
@@ -113,9 +155,9 @@ const Client = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="mb-20"
           >
-            <h2 className="client-section-title font-bold text-teddy-text text-center mb-12">
+            {/* <h2 className="client-section-title font-bold text-teddy-text text-center mb-12">
               클라이언트 소개
-            </h2>
+            </h2> */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {clients.map((client, index) => (
                 <motion.div
@@ -125,60 +167,19 @@ const Client = () => {
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   className="card p-6 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
                 >
-                  <div className="w-20 h-20 mx-auto mb-4 bg-white rounded-lg shadow-md flex items-center justify-center">
+                  <div className="h-20 mx-auto mb-4 bg-white rounded-lg flex items-center justify-center overflow-hidden">
                     <img
                       src={client.logo}
                       alt={client.name}
-                      className="max-w-full max-h-full object-contain"
+                      className={`${client.size} object-contain`}
                     />
                   </div>
-                  <h3 className="client-card-title font-bold text-teddy-text mb-2">
+                  <h3 className="client-card-title font-bold text-teddy-text mb-2 opacity-30">
                     {client.name}
                   </h3>
-                  <span className="inline-block bg-teddy-secondary text-teddy-muted px-3 py-1 rounded-full client-card-category">
+                  {/* <span className="inline-block bg-teddy-secondary text-teddy-muted px-3 py-1 rounded-full client-card-category">
                     {client.category}
-                  </span>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-
-          {/* Testimonials */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-          >
-            <h2 className="client-section-title font-bold text-teddy-text text-center mb-12">
-              클라이언트 후기
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {testimonials.map((testimonial, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.2 }}
-                  className="card p-8"
-                >
-                  <div className="flex items-center mb-4">
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <svg key={i} className="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                      </svg>
-                    ))}
-                  </div>
-                  <p className="client-testimonial-content text-teddy-muted leading-relaxed mb-6">
-                    "{testimonial.content}"
-                  </p>
-                  <div>
-                    <div className="client-testimonial-name font-semibold text-teddy-text">
-                      {testimonial.name}
-                    </div>
-                    <div className="client-testimonial-position text-teddy-muted">
-                      {testimonial.position}, {testimonial.company}
-                    </div>
-                  </div>
+                  </span> */}
                 </motion.div>
               ))}
             </div>
