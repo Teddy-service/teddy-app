@@ -40,7 +40,8 @@ const Contact = () => {
   // Google Maps 초기화
   useEffect(() => {
     const initMap = () => {
-      const googleMapKey = import.meta.env.VITE_GOOGLE_MAP_KEY
+      // const googleMapKey = import.meta.env.VITE_GOOGLE_MAP_KEY
+      const googleMapKey = "AIzaSyBGWolcDjoJRRhnyqs2h6IgH3GOEex5JsQ"
       
       if (!googleMapKey) {
         console.error('Google Maps API key not found')
