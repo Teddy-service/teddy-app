@@ -56,7 +56,7 @@ const Contact = () => {
       script.onload = () => {
         if (mapRef.current && window.google) {
           // TEDDY Agency 위치 (강남구로 가정)
-          const teddyLocation = { lat: 37.5665, lng: 126.9780 }
+          const teddyLocation = { lat: 37.5095924, lng: 127.025036 }
           
           mapInstanceRef.current = new window.google.maps.Map(mapRef.current, {
             zoom: 15,
@@ -80,8 +80,8 @@ const Contact = () => {
             title: 'TEDDY Agency',
             icon: {
               url: 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(`
-                <svg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-                  <circle cx="20" cy="20" r="18" fill="#f97316" stroke="#fff" stroke-width="2"/>
+                <svg width="20" height="20" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="20" cy="20" r="18" fill="black" stroke="#fff" stroke-width="2"/>
                   <text x="20" y="26" text-anchor="middle" fill="white" font-size="16" font-weight="bold">T</text>
                 </svg>
               `),
@@ -150,19 +150,19 @@ const Contact = () => {
     {
       icon: "📍",
       title: "주소",
-      content: "서울특별시 강남구 테헤란로 123",
-      subContent: "TEDDY 빌딩 5층"
+      content: "서울특별시 강남구 강남대로126길 26-5",
+      subContent: ""
     },
     {
       icon: "📞",
       title: "전화",
-      content: "02-1234-5678",
-      subContent: "평일 09:00 - 18:00"
+      content: "010-3527-7600",
+      subContent: "연중무휴"
     },
     {
       icon: "✉️",
       title: "이메일",
-      content: "teddy@agency.com",
+      content: "teddyagency@naver.com",
       subContent: "24시간 접수 가능"
     }
   ]
