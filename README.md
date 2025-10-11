@@ -44,7 +44,8 @@
 | **Animation** | Framer Motion |
 | **슬라이더/갤러리** | Swiper |
 | **Form 처리** | EmailJS (설정 필요) |
-| **배포 예정** | Netlify, Vercel 또는 GitHub Pages |
+| **배포** | Azure Storage Static Website |
+| **CI/CD** | GitHub Actions |
 
 ---
 
@@ -150,6 +151,35 @@ npm run build
 # 5. 프리뷰
 npm run preview
 ```
+
+## ☁️ Azure Storage 자동 배포
+
+GitHub Actions를 통해 main 브랜치에 push하면 자동으로 Azure Storage에 배포됩니다.
+
+### 배포 설정 방법
+1. [Azure 배포 가이드](.github/AZURE_DEPLOYMENT_GUIDE.md) 참고
+2. GitHub Secrets 설정 (필수):
+   - `AZURE_STORAGE_ACCOUNT_NAME`: Azure Storage 계정 이름
+   - `AZURE_STORAGE_ACCOUNT_KEY`: Azure Storage 액세스 키
+   - `AZURE_CREDENTIALS`: Azure 인증 정보 (Service Principal)
+
+### 자동 배포 트리거
+```bash
+# main 브랜치에 push하면 자동 배포
+git push origin main
+```
+
+### 수동 배포
+- GitHub → Actions → "Deploy to Azure Storage" → Run workflow
+
+자세한 설정 방법은 [.github/AZURE_DEPLOYMENT_GUIDE.md](.github/AZURE_DEPLOYMENT_GUIDE.md)를 참고하세요.
+
+### Vercel 배포 비활성화 ⚠️
+
+이 프로젝트는 **Azure Storage**를 주 배포 플랫폼으로 사용합니다.
+- `vercel.json`은 `vercel.json.backup`으로 백업되어 있습니다
+- Vercel 자동 배포가 비활성화되었습니다
+- Vercel을 다시 활성화하려면 [VERCEL_DISABLE_GUIDE.md](.github/VERCEL_DISABLE_GUIDE.md) 참고
 
 ## 🔧 환경 설정
 

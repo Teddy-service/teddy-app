@@ -1,0 +1,67 @@
+name: Deploy to Azure Storage
+
+on:
+  push:
+    branches:
+      - main  # main 브랜치에 push될 때 실행
+  workflow_dispatch:  # 수동 실행 가능
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+      # 1. 코드 체크아웃
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # 2. Node.js 환경 설정
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      # 3. 의존성 설치
+      - name: Install dependencies
+        run: npm ci
+
+      # 4. 프로젝트 빌드
+      - name: Build project
+        run: npm run build
+
+      # 5. Azure CLI 로그인
+      - name: Azure Login
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      # 6. Azure Storage에 빌드 산출물 업로드
+      - name: Upload to Azure Storage
+        run: |
+          az storage blob upload-batch \
+            --account-name ${{ secrets.AZURE_STORAGE_ACCOUNT_NAME }} \
+            --auth-mode key \
+            --account-key ${{ secrets.AZURE_STORAGE_ACCOUNT_KEY }} \
+            --destination '$web/websites' \
+            --source ./dist \
+            --overwrite true
+
+      # 7. Azure Storage 캐시 제거 (선택사항)
+      # - name: Purge Azure CDN (Optional)
+      #   run: |
+      #     if [ ! -z "${{ secrets.AZURE_CDN_PROFILE }}" ] && [ ! -z "${{ secrets.AZURE_CDN_ENDPOINT }}" ]; then
+      #       az cdn endpoint purge \
+      #         --resource-group ${{ secrets.AZURE_RESOURCE_GROUP }} \
+      #         --profile-name ${{ secrets.AZURE_CDN_PROFILE }} \
+      #         --name ${{ secrets.AZURE_CDN_ENDPOINT }} \
+      #         --content-paths "/*"
+      #     fi
+      #   continue-on-error: true
+
+      # 8. 배포 완료 알림
+      - name: Deployment completed
+        run: |
+          echo "✅ Deployment to Azure Storage completed successfully!"
+          echo "📦 Deployed to: $web/websites"
+

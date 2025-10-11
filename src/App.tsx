@@ -8,6 +8,7 @@ import About from './pages/About'
 import Portfolio from './pages/Portfolio'
 import Client from './pages/Client'
 import Contact from './pages/Contact'
+import NotFound from './pages/NotFound'
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
                   <Route path="/portfolio" element={<Portfolio />} />
                   <Route path="/client" element={<Client />} />
                   <Route path="/contact" element={<Contact />} />
+                  <Route path="*" element={<NotFound />} />
                 </Routes>
               </AnimatePresence>
             </main>
