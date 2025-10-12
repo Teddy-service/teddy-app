@@ -1,0 +1,64 @@
+name: Deploy to Azure Storage (Root)
+
+# 루트 경로에 배포하는 워크플로우
+# $web/websites 대신 $web에 직접 배포
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build project
+        run: npm run build
+
+      - name: Azure Login
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      # $web 루트에 직접 배포 (websites 하위 경로 없음)
+      - name: Upload to Azure Storage Root
+        run: |
+          az storage blob upload-batch \
+            --account-name ${{ secrets.AZURE_STORAGE_ACCOUNT_NAME }} \
+            --auth-mode key \
+            --account-key ${{ secrets.AZURE_STORAGE_ACCOUNT_KEY }} \
+            --destination '$web' \
+            --source ./dist \
+            --overwrite true
+
+      # - name: Purge Azure CDN (Optional)
+      #   run: |
+      #     if [ ! -z "${{ secrets.AZURE_CDN_PROFILE }}" ] && [ ! -z "${{ secrets.AZURE_CDN_ENDPOINT }}" ]; then
+      #       az cdn endpoint purge \
+      #         --resource-group ${{ secrets.AZURE_RESOURCE_GROUP }} \
+      #         --profile-name ${{ secrets.AZURE_CDN_PROFILE }} \
+      #         --name ${{ secrets.AZURE_CDN_ENDPOINT }} \
+      #         --content-paths "/*"
+      #     fi
+      #   continue-on-error: true
+
+      - name: Deployment completed
+        run: |
+          echo "✅ Deployment to Azure Storage completed successfully!"
+          echo "📦 Deployed to: $web (root)"
+          echo "🌐 URL: https://${{ secrets.AZURE_STORAGE_ACCOUNT_NAME }}.z20.web.core.windows.net/"
+
