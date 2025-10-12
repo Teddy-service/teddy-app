@@ -36,14 +36,14 @@ jobs:
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-      # 6. Azure Storage에 빌드 산출물 업로드
+      # 6. Azure Storage 루트에 빌드 산출물 업로드
       - name: Upload to Azure Storage
         run: |
           az storage blob upload-batch \
             --account-name ${{ secrets.AZURE_STORAGE_ACCOUNT_NAME }} \
             --auth-mode key \
             --account-key ${{ secrets.AZURE_STORAGE_ACCOUNT_KEY }} \
-            --destination '$web/websites' \
+            --destination '$web' \
             --source ./dist \
             --overwrite true
 
@@ -63,5 +63,6 @@ jobs:
       - name: Deployment completed
         run: |
           echo "✅ Deployment to Azure Storage completed successfully!"
-          echo "📦 Deployed to: $web/websites"
+          echo "📦 Deployed to: \$web (root)"
+          echo "🌐 URL: https://${{ secrets.AZURE_STORAGE_ACCOUNT_NAME }}.z20.web.core.windows.net/"
 

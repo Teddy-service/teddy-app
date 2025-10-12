@@ -75,19 +75,21 @@ https://[스토리지].z20.web.core.windows.net/websites/
 
 ---
 
-## 🔄 현재 설정
+## 🔄 현재 설정 ✅
 
 ### 현재 활성화된 설정:
 
 **vite.config.ts:**
 ```typescript
-base: '/websites/'  // 하위 경로
+base: '/'  // 루트 경로
 ```
 
 **deploy-azure.yml:**
 ```yaml
---destination '$web/websites'  // 하위 경로
+--destination '$web'  // 루트 경로
 ```
+
+**상태:** ✅ 설정 완료 및 일치됨
 
 ### 변경하려면:
 
