@@ -172,6 +172,46 @@ git push origin main
 ### 수동 배포
 - GitHub → Actions → "Deploy to Azure Storage" → Run workflow
 
+### ⚠️ SPA 라우팅 설정 (중요!)
+
+배포 후 `/intro`, `/about` 등의 경로에서 404가 발생하면:
+
+**빠른 해결 (1분):**
+1. Azure Portal → Storage Account → Static website
+2. `Error document path: index.html` 설정
+3. Save
+
+**또는 CLI 사용:**
+```bash
+az storage blob service-properties update \
+  --account-name [스토리지계정명] \
+  --static-website \
+  --404-document index.html \
+  --index-document index.html
+```
+
+자세한 내용: [QUICK_FIX_404.md](.github/QUICK_FIX_404.md) 또는 [AZURE_SPA_ROUTING_FIX.md](.github/AZURE_SPA_ROUTING_FIX.md)
+
+### 🌐 사용자 지정 도메인 설정
+
+커스텀 도메인(예: teddyagency.co.kr)을 연결하려면:
+
+**빠른 가이드:**
+1. DNS 제공업체에서 CNAME 레코드 추가
+   ```
+   www → cdnteddy.z12.web.core.windows.net
+   ```
+2. DNS 전파 대기 (15분~2시간)
+3. Azure Portal → Storage Account → Custom domain에서 도메인 추가
+
+**DNS 확인:**
+```bash
+chmod +x .github/scripts/check-dns.sh
+./.github/scripts/check-dns.sh www.teddyagency.co.kr
+```
+
+자세한 내용: [CUSTOM_DOMAIN_QUICKFIX.md](.github/CUSTOM_DOMAIN_QUICKFIX.md) 또는 [AZURE_CUSTOM_DOMAIN_SETUP.md](.github/AZURE_CUSTOM_DOMAIN_SETUP.md)
+
 자세한 설정 방법은 [.github/AZURE_DEPLOYMENT_GUIDE.md](.github/AZURE_DEPLOYMENT_GUIDE.md)를 참고하세요.
 
 ### Vercel 배포 비활성화 ⚠️

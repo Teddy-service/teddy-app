@@ -36,6 +36,16 @@ jobs:
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
+      # 5-1. Static Website 설정 (SPA 라우팅 지원)
+      - name: Configure Static Website for SPA
+        run: |
+          az storage blob service-properties update \
+            --account-name ${{ secrets.AZURE_STORAGE_ACCOUNT_NAME }} \
+            --static-website \
+            --404-document index.html \
+            --index-document index.html
+        continue-on-error: true
+
       # 6. Azure Storage 루트에 빌드 산출물 업로드
       - name: Upload to Azure Storage
         run: |

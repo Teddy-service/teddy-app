@@ -22,10 +22,10 @@ export const sendContactEmail = async (formData: EmailData): Promise<boolean> =>
     const emailHost = import.meta.env.VITE_EMAIL_HOST || 'smtp.naver.com'
     const emailPort = import.meta.env.VITE_EMAIL_PORT || '587'
     const emailSecure = import.meta.env.VITE_EMAIL_SECURE || 'false'
-    const emailUser = import.meta.env.VITE_EMAIL_USER || '13three@naver.com'
-    const emailPassword = import.meta.env.VITE_EMAIL_PASSWORD || '7DHSKV8FN69P'
-    const emailFrom = import.meta.env.VITE_EMAIL_FROM || '13three@naver.com'
-    const emailTo = import.meta.env.VITE_EMAIL_TO || '13three@naver.com'
+    const emailUser = import.meta.env.VITE_EMAIL_USER || 'teddyagency@naver.com'
+    const emailPassword = import.meta.env.VITE_EMAIL_PASSWORD || 'CYQHPMN7D8LQ'
+    const emailFrom = import.meta.env.VITE_EMAIL_FROM || 'teddyagency@naver.com'
+    const emailTo = import.meta.env.VITE_EMAIL_TO || 'teddyagency@naver.com'
     const apiUrl = import.meta.env.VITE_EMAIL_API_URL || 'https://fxhub.azurewebsites.net/api/fxhub/sendEmailHeaders'
 
     // 환경변수 로드 확인 (개발 시에만)
