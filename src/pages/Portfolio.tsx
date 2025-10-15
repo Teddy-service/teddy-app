@@ -440,11 +440,12 @@ const Portfolio = () => {
       category: "모델 에이전시",
       description: "TV 광고 및 프린트 광고에 필요한 모델들을 제공하고 매니지먼트했습니다.",
       longDescription: "대형 화장품 브랜드 'COSMETIC'의 TV 광고 및 프린트 광고 촬영을 위한 모델 캐스팅을 담당했습니다. 브랜드의 이미지에 맞는 모델 20명을 선별하고, 3개월간의 촬영 일정을 관리했습니다. 광고 방영 후 브랜드 매출 150% 증가의 성과를 달성했습니다.",
-      image: "/assets/IMG/Project/Gucci/test/test_1.jpg",
+      image: "/assets/IMG/Project/tModel/model_1.jpeg",
       height: "h-[30rem]",
       images: [
-        "/assets/IMG/Project/Gucci/test/test_1.jpg",
-        "/assets/IMG/Project/Gucci/test/test_2.jpg",
+        "/assets/IMG/Project/tModel/model_1.jpeg",
+        "/assets/IMG/Project/tModel/model_2.jpeg",
+        "/assets/IMG/Project/tModel/model_3.jpeg",
       ],
       details: {
         client: "COSMETIC 브랜드",
