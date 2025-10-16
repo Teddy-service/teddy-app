@@ -32,6 +32,44 @@ const Portfolio = () => {
   const projects = [
     {
       id: 1,
+      title: "[GUCCI BEAUTY] BLOOM 시향회💝",
+      category: "행사 기획",
+      description: "롯데백화점 본점에서 진행된 Bloom 시향회 ✨",
+      longDescription: (
+        <>
+          {/* <p>✔️ 포토 인화 이벤트 </p>
+          <p>✔️ 100% 당첨 스크래치 카드 이벤트</p> */}
+          <br />
+          <p>
+            명동 특성상 외국인 고객분들이 많아 외국어 응대가 가능한 프로모터들을 배치하고 전문 세일즈 경험이 있는 프로모터들과 함께 매출 극대화에 집중했습니다.
+            <br /><br />
+            그 결과 목표 매출을 초과 달성하며 큰 호응을 얻은 성공적인 행사로 마무리되었습니다! 🌸
+            <br /><br />
+            안정적인 행사 운영 테디에이전시와 함께하세요! 🙌
+            <br /><br />
+          </p>
+        </>
+      ),
+      image: "/assets/IMG/Project/GUCCI-2/GUCCI-2-1.jpeg",
+      height: "h-[30rem]",
+      images: [
+        "/assets/IMG/Project/GUCCI-2/GUCCI-2-1.jpeg",
+        "/assets/IMG/Project/GUCCI-2/GUCCI-2-2.jpeg",
+        "/assets/IMG/Project/GUCCI-2/GUCCI-2-3.jpeg",
+        "/assets/IMG/Project/GUCCI-2/GUCCI-2-4.jpeg",
+        "/assets/IMG/Project/GUCCI-2/GUCCI-2-5.jpeg",
+      ],
+      details: {
+        client: "@guccibeauty",
+        date: "2025.08.25 - 2025.08.31",
+        location: "롯데백화점 본점",
+        // duration: "2주",
+        // team: "이벤트 운영팀 4명, 프로모터 6명",
+        // results: ["VIP 고객 1,000명 방문", "매출 3억원 달성", "SNS 인플루언서 50명 참여"]
+      }
+    },
+    {
+      id: 2,
       title: "[GUCCI BEAUTY] FLORA GARDENIA INTENSE 시향회 🌸",
       category: "행사 기획",
       description: "플로라 라인의 시그니처 향, 가드니아 인텐스의 새 출시를 기념해 진행된 시향회💐",
@@ -72,7 +110,7 @@ const Portfolio = () => {
       }
     },
     {
-      id: 2,
+      id: 3,
       title: "[GIVENCHY] 현대백화점 판교점 팝업스토어🛍️",
       category: "행사 기획",
       description: "현대백화점 판교점 입점을 앞두고 고객분들을 미리 만나기 위해 10일간의 팝업스토어를 진행했습니다.",
@@ -114,7 +152,7 @@ const Portfolio = () => {
       }
     },
     {
-      id: 3,
+      id: 4,
       title: "[GIVENCHY] New 랑떼르디 퍼퓸 팝업스토어 & 메이크업 쇼 ✨",
       category: "행사 기획",
       description: "지방시의 시그니처 향수 랑떼르디 신제품 출시를 기념해 수원에서 특별한 팝업 행사가 열렸습니다🖤",
@@ -154,7 +192,7 @@ const Portfolio = () => {
       }
     },
     {
-      id: 4,
+      id: 5,
       title: "[THE FACE SHOP] 더페이스샵 X 다이노탱 풍작 에디션 팝업스토어",
       category: "행사 기획",
       description: "귀여운 다이노탱 에디션과 함께한 특별한 현장 🍑✨",
@@ -192,7 +230,7 @@ const Portfolio = () => {
       }
     },
     {
-      id: 5,
+      id: 6,
       title: "지프 시승행사",
       category: "마케팅 컨설팅",
       description: "지프 차량의 시승행사를 기획하고 성공적으로 진행했습니다.",
@@ -213,7 +251,7 @@ const Portfolio = () => {
       }
     },
     {
-      id: 6,
+      id: 7,
       title: "[GIVENCHY] 신세계백화점 강남점 팝업 스토어",
       category: "행사 기획",
       description: "신세계백화점 강남점에서 진행된 지방시 젠틀맨 소사이어티 팝업을 성공적으로 마무리했습니다.",
@@ -248,7 +286,7 @@ const Portfolio = () => {
       }
     },
     {
-      id: 7,
+      id: 8,
       title: "[FRESHIAN] Kurly Beauty Festa",
       category: "마케팅 컨설팅",
       description: "프로시안 화장품 브랜드의 신제품 런칭 행사를 성공적으로 진행했습니다.",
@@ -281,7 +319,7 @@ const Portfolio = () => {
       }
     },
     {
-      id: 8,
+      id: 9,
       title: "[GIVENCHY] 싱글즈 스튜디오 팝업 스토어 ",
       category: "마케팅 컨설팅",
       description: "고객들과 소통하며 재밌게 운영한 덕분에 더 많은 분들이 지방시 제품을 직접 체험하고 즐길 수 있었어요!",
@@ -317,7 +355,7 @@ const Portfolio = () => {
       }
     },
     {
-      id: 9,
+      id: 10,
       title: "구찌 메이크업 행사",
       category: "행사 기획",
       description: "구찌 뷰티의 메이크업 라인 런칭 행사를 성공적으로 진행했습니다.",
@@ -338,7 +376,7 @@ const Portfolio = () => {
       }
     },
     {
-      id: 10,
+      id: 11,
       title: "[GUCCI BEAUTY] FLORA 시향회 🌸",
       category: "마케팅 컨설팅",
       description: `“향기로 기억되는 순간”`,
@@ -377,7 +415,7 @@ const Portfolio = () => {
       }
     },
     {
-      id: 11,
+      id: 12,
       title: "[THE FACE SHOP] Coupang Mega Beauty Show",
       category: "행사 기획",
       description: "쿠팡 메가뷰티쇼✨",
@@ -411,7 +449,7 @@ const Portfolio = () => {
       }
     },
     {
-      id: 12,
+      id: 13,
       title: "버버리 메이크업 쇼",
       category: "행사 기획",
       description: "버버리 뷰티의 신제품 메이크업 쇼를 성공적으로 진행했습니다.",
@@ -431,7 +469,7 @@ const Portfolio = () => {
       }
     },
     {
-      id: 13,
+      id: 14,
       title: "셀트리온 스킨큐어 팝업스토어",
       category: "행사 기획",
       description: "셀트리온 스킨큐어의 신제품 팝업스토어를 성공적으로 운영했습니다.",
@@ -452,7 +490,7 @@ const Portfolio = () => {
       }
     },
     {
-      id: 14,
+      id: 15,
       title: "지방시 코스메틱 메이크업 쇼",
       category: "행사 기획",
       description: "지방시 코스메틱의 신제품 메이크업 쇼와 팝업 스토어를 성공적으로 진행했습니다.",
@@ -474,7 +512,7 @@ const Portfolio = () => {
       }
     },
     {
-      id: 15,
+      id: 16,
       title: "cnpx 코스메틱 신제품 런칭쇼",
       category: "마케팅 컨설팅", 
       description: "cnpx 코스메틱의 신제품 런칭쇼와 체험 행사를 성공적으로 진행했습니다.",
@@ -495,7 +533,7 @@ const Portfolio = () => {
       }
     },
     {
-      id: 16,
+      id: 17,
       title: "sum 코스메틱 팝업스토어",
       category: "행사 기획",
       description: "sum 코스메틱의 럭셔리 안티에이징 라인 팝업스토어를 성공적으로 운영했습니다.",
@@ -516,7 +554,7 @@ const Portfolio = () => {
       }
     },
     {
-      id: 17,
+      id: 18,
       title: "지프 로드 행사",
       category: "마케팅 컨설팅",
       description: "지프 브랜드의 오프로드 체험 행사를 성공적으로 진행했습니다.",
@@ -537,7 +575,7 @@ const Portfolio = () => {
       }
     },
     {
-      id: 18,
+      id: 19,
       title: "패션 위크 모델 캐스팅",
       category: "모델 에이전시",
       description: "서울 패션위크에 참가하는 브랜드들의 모델 캐스팅을 총괄했습니다.",
@@ -558,7 +596,7 @@ const Portfolio = () => {
       }
     },
     {
-      id: 19,
+      id: 20,
       title: "광고 촬영 모델 매니지먼트",
       category: "모델 에이전시",
       description: "TV 광고 및 프린트 광고에 필요한 모델들을 제공하고 매니지먼트했습니다.",
